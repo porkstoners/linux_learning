@@ -1,0 +1,80 @@
+This is a fle
+that is created to 
+be used as a test for Grep and vI
+It will incude letters and numbers and all other kinds of things 
+That will help us learn how to sort and organize words and numbers inside of files. 
+We will use a combonation of bash grep and vim to help us on our journey. 
+
+firehouse
+fireman
+firetruck
+firepit
+firealarm
+firefighter
+firefirefire
+give me some fire
+What do you want ? "I want to change all of the text between the double quotes!"
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Why do they not teach the vi 
+I do not know why
+
+steve
+jim
+fred 
+bob 
+doug 
+charles
+samanthat 
+amanda
+bernardThis is a fle
+that is created to 
+be used as a test for Grep and vI
+It will incude letters and numbers and all other kinds of things 
+That will help us learn how to sort and organize words and numbers inside of files. 
+We will use a combonation of bash grep and vim to help us on our journey. 
+
+firehouse
+
+firemanuuretruck
+firemanuuretruck
+firemanuuretruck
+firemanuuretruck
+firemanuuretruck
+firepit
+firealarm
+firefighter
+firefirefire
+give me some fire
+What do you want ? "I want to change all of the text between the double quotes!"
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Why do they not teach the vi 
+I do not know why
+
+steve
+jim
+fred 
+bob 
+doug 
+charles
+samanthat 
+amanda
+bernard
+
+
+
