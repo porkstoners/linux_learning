@@ -1,0 +1,107 @@
+1. System Configuration for Real-Time Performance
+Install Real-Time Kernel
+Use the kernel-rt package to enable the real-time kernel:
+
+
+# bash
+Copy code
+sudo yum install kernel-rt
+```
+Boot into the real-time kernel using the GRUB menu.
+
+Isolate CPU Cores
+Reserve specific CPU cores for real-time tasks by isolating them. Add the following kernel parameter to the bootloader:
+
+bash
+Copy code
+isolcpus=<cpu_list>
+Example: isolcpus=1,2.
+
+Disable Power Management Features
+Disable power-saving states and frequency scaling:
+
+Add kernel boot parameters:
+bash
+Copy code
+intel_idle.max_cstate=0 processor.max_cstate=1 idle=poll
+Use cpupower to set the CPU governor to performance:
+bash
+Copy code
+sudo cpupower frequency-set -g performance
+2. Memory Management Tuning
+Lock Memory for Real-Time Processes
+Prevent memory paging using the mlockall() system call. Configure limits in /etc/security/limits.conf:
+
+php
+Copy code
+<user>  -  memlock  unlimited
+Reduce Swapping
+Set swappiness to 0 to avoid swapping:
+
+bash
+Copy code
+sudo sysctl vm.swappiness=0
+NUMA Balancing
+Disable automatic NUMA balancing to prevent CPU migration:
+
+bash
+Copy code
+sudo sysctl kernel.numa_balancing=0
+3. IRQ and CPU Affinity
+Tune IRQ Affinity
+Assign IRQs to specific CPUs for better performance. Example using irqbalance:
+
+bash
+Copy code
+sudo systemctl disable irqbalance
+Manually Assign IRQs
+Use irqaffinity or /proc/irq/<IRQ_NUM>/smp_affinity to assign interrupts to specific cores.
+
+4. Networking Tuning
+Reduce Latency in Network Stack
+
+Disable GRO (Generic Receive Offload) and TSO (TCP Segmentation Offload):
+bash
+Copy code
+sudo ethtool -K <interface> gro off tso off
+Enable real-time networking stack:
+bash
+Copy code
+sudo sysctl net.core.netdev_budget=50000
+sudo sysctl net.core.netdev_budget_usecs=5000
+Set CPU Affinity for Network Interfaces
+Use ethtool to map network queues to isolated CPUs.
+
+5. Filesystem and I/O Optimization
+Use Real-Time I/O Scheduling
+Use the deadline I/O scheduler for real-time tasks:
+
+bash
+Copy code
+sudo echo "mq-deadline" > /sys/block/<device>/queue/scheduler
+Avoid Journaling Overhead
+Use noatime and nodiratime mount options to reduce filesystem overhead.
+
+6. Kernel Parameters for Real-Time
+Add these kernel parameters for low latency:
+Copy code
+nosoftlockup nmi_watchdog=0 nowatchdog
+Adjust Timer Granularity
+Set a high-resolution timer with:
+bash
+Copy code
+sudo sysctl kernel.timer_migration=0
+7. General Recommendations
+Disable Unnecessary Services
+Use systemctl to stop non-essential background services.
+
+Use Performance Tools
+Utilize tools like tuna, rt-tests, and cyclictest to measure and fine-tune latency performance.
+
+Key Focus Areas:
+Install the real-time kernel.
+Isolate CPU cores and disable power-saving features.
+Lock memory and disable swapping.
+Optimize IRQ affinity and network tuning.
+Use deadline-based I/O and minimize unnecessary processes.
+This summary streamlines the guide for quick action while retaining all major steps! Let me know if you'd like further details on any specific section.
