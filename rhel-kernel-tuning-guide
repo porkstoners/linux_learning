@@ -3,10 +3,10 @@ Install Real-Time Kernel
 Use the kernel-rt package to enable the real-time kernel:
 
 
-# bash
+bash
 Copy code
 sudo yum install kernel-rt
-```
+
 Boot into the real-time kernel using the GRUB menu.
 
 Isolate CPU Cores
