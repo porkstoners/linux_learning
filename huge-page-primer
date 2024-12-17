@@ -1,0 +1,19 @@
+
+What are Huge Pages?
+
+Memory pages larger than the default 4KiB size; typically 2MiB or 1GiB.
+Reduces memory fragmentation and page table size.
+Address Translation & TLB
+
+Virtual addresses are mapped to physical memory using page tables.
+Page table lookups add latency unless cached in the Translation Lookaside Buffer (TLB).
+Why Huge Pages Matter
+
+TLB with 2MiB pages can map up to ~4GiB, vs. only ~8MiB with 4KiB pages.
+Reduces TLB misses and speeds up page table lookups.
+Performance Gains
+
+Benchmarks show 4.5x faster random memory access with huge pages.
+When Not to Use
+
+Optimization depends on workloads. Benchmarking is key to validating benefits.
