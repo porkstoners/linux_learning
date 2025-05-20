@@ -5,15 +5,42 @@ It will incude letters and numbers and all other kinds of things
 That will help us learn how to sort and organize words and numbers inside of files. 
 We will use a combonation of bash grep and vim to help us on our journey. 
 
-firehouse
-fireman
-firetruck
-firepit
-firealarm
-firefighter
-firefirefire
-give me some fire
-What do you want ? "I want to change all of the text between the double quotes!"
+This is a test
+
+
+CTRL-W          Delete the word before the cursor (see i_backspacing about
+                joining lines).  See the section "word motions",
+                word-motions, for the definition of a word.
+                                                i_CTRL-U   
+CTRL-U          Delete all entered characters before the cursor in the current
+                line.  If there are no newly entered characters and
+                'backspace' is not empty, delete all characters before the
+                cursor in the current line.       
+                If C-indenting is enabled the indent will be adjusted if the
+                line becomes blank.
+                See i_backspacing about joining lines. 
+                                                i_CTRL-I i_<Tab> i_Tab
+<Tab> or CTRL-I Insert a tab.  If the 'expandtab' option is on, the
+                equivalent number of spaces is inserted (use CTRL-V <Tab> to
+                avoid the expansion; use CTRL-Q <Tab> if CTRL-V is mapped
+                i_CTRL-Q).  See also the 'smarttab' option and
+                ins-expandtab.
+                                                i_CTRL-J i_<NL>
+<NL> or CTRL-J  Begin new line.
+                                                i_CTRL-M i_<CR>
+<CR> or CTRL-M  Begin new line.
+                                                i_CTRL-K
+CTRL-K {char1} [char2]
+                Enter digraph (see digraphs).  When {char1} is a special
+                key, the code for that key is inserted in <> form.  For
+                example, the string "<S-Space>" can be entered by typing
+                <C-K><S-Space> (two keys).  Neither char is considered for
+
+
+
+
+:q:
+firehouseyou want ? "I want to change all of the text between the double quotes!"
 10
 20
 30
